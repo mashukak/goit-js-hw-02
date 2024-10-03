@@ -1,10 +1,15 @@
-function normalizeInput(input, to) {
-    if (to === "upper") {
-      return input.toUpperCase();
-    } else {
-      return input.toLowerCase();
-    }
+function makeTransaction(quantity, pricePerDroid, customerCredits) {
+  // Обчислюємо загальну вартість замовлення
+  const totalPrice = quantity * pricePerDroid;
+
+  // Перевірка, чи достатньо коштів у клієнта для оплати замовлення
+  if (totalPrice > customerCredits) {
+    return "Insufficient funds!";
+  } else {
+    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
   }
+}
+
   
 
 // console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
